@@ -261,7 +261,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 8
 --- !u!250 &87733377
 PointEffector2D:
   m_ObjectHideFlags: 0
@@ -274,12 +274,12 @@ PointEffector2D:
   m_ColliderMask:
     serializedVersion: 2
     m_Bits: 55
-  m_ForceMagnitude: -10
+  m_ForceMagnitude: -15
   m_ForceVariation: 0
   m_DistanceScale: 1
   m_ForceSource: 0
   m_ForceTarget: 0
-  m_ForceMode: 0
+  m_ForceMode: 1
   m_Drag: 0
   m_AngularDrag: 0
 --- !u!1 &105367550
@@ -1079,12 +1079,12 @@ PointEffector2D:
   m_ColliderMask:
     serializedVersion: 2
     m_Bits: 55
-  m_ForceMagnitude: -10
+  m_ForceMagnitude: -15
   m_ForceVariation: 0
   m_DistanceScale: 1
   m_ForceSource: 0
   m_ForceTarget: 0
-  m_ForceMode: 0
+  m_ForceMode: 1
   m_Drag: 0
   m_AngularDrag: 0
 --- !u!50 &1537188138
@@ -1123,7 +1123,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 8
 --- !u!212 &1537188140
 SpriteRenderer:
   m_ObjectHideFlags: 0
