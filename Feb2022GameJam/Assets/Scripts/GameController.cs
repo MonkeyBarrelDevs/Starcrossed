@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    private float totalTimer = 0;
-    private float spawnTimer = 0;
-    private int spawnFrequency = 10;
+    private double totalTimer = 0;
+    private double spawnTimer = 0;
+    [SerializeField] double spawnFrequency = 0.1;
+    AsteroidManager asteroidManager;
 
     void Start()
     {
-        
+        asteroidManager = FindObjectOfType<AsteroidManager>();
     }
 
     private void SpawnCheck()
@@ -18,12 +19,14 @@ public class GameController : MonoBehaviour
         if (spawnTimer > spawnFrequency)
         {
             spawnTimer -= spawnFrequency;
-            //call spawn function in asteroidSpawner
+            asteroidManager.Spawn();
+            Debug.Log("Hello");
         }
     }
 
     void Update()
     {
+        Debug.Log("Hi");
         totalTimer += Time.deltaTime;
         spawnTimer += Time.deltaTime;
         //if (checked earth controller to see if dead)
