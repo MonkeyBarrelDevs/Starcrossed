@@ -6,7 +6,7 @@ public class GameController : MonoBehaviour
 {
     private double totalTimer = 0;
     private double spawnTimer = 0;
-    [SerializeField] double spawnFrequency = 0.1;
+    [SerializeField] double spawnFrequency = 0.01;
     AsteroidManager asteroidManager;
 
     void Start()
