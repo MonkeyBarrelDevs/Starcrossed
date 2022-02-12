@@ -22,6 +22,18 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void PausePlayGame()
+    {
+        if (Time.timeScale == 1)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
+    }
+
     void Update()
     {
         totalTimer += Time.deltaTime;
