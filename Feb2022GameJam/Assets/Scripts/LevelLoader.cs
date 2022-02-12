@@ -30,6 +30,11 @@ public class LevelLoader : MonoBehaviour
         StartCoroutine(LoadLevel(index));
     }
 
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
     IEnumerator LoadLevel(int levelIndex)
     {
         transition.SetTrigger("Start");
