@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public ParticleSystem playerParticles;
     public Rigidbody2D playerRidge;
     public PointEffector2D playerPoint;
     public int playerNumber;
+    private int emissionRate = 10;
     GameController gameController;
     AudioManager audioManager;
     [SerializeField] int absorbScaleFactor;
@@ -25,6 +27,12 @@ public class PlayerController : MonoBehaviour
             Destroy(col.collider.gameObject);
             //changes the pull strength of BH based on absorbed asteroids
             playerPoint.forceMagnitude -= absorbScaleFactor;
+            ParticleSystem.ShapeModule sm = playerParticles.shape;
+            sm.radius += 1;
+            ParticleSystem.EmissionModule em = playerParticles.emission;
+            emissionRate += 5;
+            em.rateOverTime = emissionRate;
+            playerParticles.startLifetime += 1;
         }
 
         

@@ -617,6 +617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e42ea06bc562a4251986d12b630556d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerParticles: {fileID: 659018899}
   playerRidge: {fileID: 659018894}
   playerPoint: {fileID: 659018893}
   playerNumber: 1
@@ -6832,6 +6833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e42ea06bc562a4251986d12b630556d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerParticles: {fileID: 1904157993}
   playerRidge: {fileID: 1904157988}
   playerPoint: {fileID: 1904157987}
   playerNumber: 2
