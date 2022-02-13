@@ -68,6 +68,9 @@ public class GameController : MonoBehaviour
         GameObject.FindGameObjectWithTag("GameOver").GetComponent<SpriteRenderer>().enabled = true;
         GameObject.FindGameObjectWithTag("Menu").GetComponent<Image>().enabled = true;
         GameObject.FindGameObjectWithTag("Retry").GetComponent<Image>().enabled = true;
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void PausePlayGame()
@@ -101,13 +104,7 @@ public class GameController : MonoBehaviour
             PausePlayGame();
             pauseMenu.SetActive(!pauseMenu.activeInHierarchy);
 
-            /*if (Cursor.visible) {
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-            } else {
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-            }*/
+            ToggleMouse();
         }
         totalTimer = Time.timeSinceLevelLoad;
         spawnTimer += Time.deltaTime;
@@ -118,5 +115,19 @@ public class GameController : MonoBehaviour
 
     public bool IsGamePlaying() {
         return canMove;
+    }
+
+    public void ToggleMouse() 
+    {
+        if (Cursor.visible)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 }
