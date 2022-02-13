@@ -39,7 +39,6 @@ public class AsteroidManager : MonoBehaviour
         GameObject asteroidInstance = Instantiate(asteroids[asteroidIndex], PickSpawnPoint(), Quaternion.identity);
         asteroidInstance.transform.rotation.SetLookRotation(Vector3.forward, PickTarget(asteroidInstance.transform.position));
         asteroidInstance.GetComponent<Rigidbody2D>().velocity = PickTarget(asteroidInstance.transform.position).normalized * velocities[asteroidIndex];
-        Debug.Log("yo");
     }
 
     public float GetDestroyRadius() {

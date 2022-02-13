@@ -6,7 +6,7 @@ public class GameController : MonoBehaviour
 {
     private double totalTimer = 0;
     private double spawnTimer = 0;
-    [SerializeField] double spawnFrequency = 0.01;
+    double spawnFrequency = 2;
     AsteroidManager asteroidManager;
 
     void Start()
@@ -16,9 +16,8 @@ public class GameController : MonoBehaviour
 
     private void SpawnCheck()
     {
-        if (spawnTimer > spawnFrequency)
-        {
-            spawnTimer -= spawnFrequency;
+        if (spawnTimer > spawnFrequency){
+            spawnTimer = 0;
             asteroidManager.Spawn();
             Debug.Log("Hello");
         }
@@ -38,9 +37,13 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Hi");
-        totalTimer += Time.deltaTime;
+        //Debug.Log("Hi");
+        totalTimer = Time.time;
         spawnTimer += Time.deltaTime;
+        spawnFrequency -= 0.01;
+        //Time.
+        //Debug.Log(spawnTimer);
+        //Debug.Log(spawnTimer);
         //if (checked earth controller to see if dead)
         //{
         //tell screen manager to end screen
