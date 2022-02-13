@@ -302,6 +302,7 @@ MonoBehaviour:
   playerRidge: {fileID: 659018894}
   playerPoint: {fileID: 659018893}
   playerNumber: 1
+  absorbScaleFactor: 10
 --- !u!250 &659018893
 PointEffector2D:
   m_ObjectHideFlags: 0
@@ -6486,6 +6487,7 @@ MonoBehaviour:
   playerRidge: {fileID: 1904157988}
   playerPoint: {fileID: 1904157987}
   playerNumber: 2
+  absorbScaleFactor: 10
 --- !u!250 &1904157987
 PointEffector2D:
   m_ObjectHideFlags: 0

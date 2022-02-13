@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public PointEffector2D playerPoint;
     public int playerNumber;
     GameController gameController;
+    [SerializeField] int absorbScaleFactor;
     //bool canMove;
 
     void Start()
@@ -20,7 +21,7 @@ public class PlayerController : MonoBehaviour
         if (col.collider.gameObject.tag == "Asteroid") {
            Destroy(col.collider.gameObject);
             //changes the pull strength of BH based on absorbed asteroids
-            playerPoint.forceMagnitude -= 10;
+            playerPoint.forceMagnitude -= absorbScaleFactor;
         }
 
         
