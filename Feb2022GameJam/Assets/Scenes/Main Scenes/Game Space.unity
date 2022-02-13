@@ -717,9 +717,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRidge: {fileID: 659018894}
-  playerPoint: {fileID: 659018893}
+  playerCollider: {fileID: 659018895}
   playerNumber: 1
-  absorbScaleFactor: 0
+  absorbScaleFactor: 2
 --- !u!250 &659018893
 PointEffector2D:
   m_ObjectHideFlags: 0
@@ -6672,7 +6672,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 1.5
 --- !u!50 &1630098208
 Rigidbody2D:
   serializedVersion: 4
@@ -6963,9 +6963,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRidge: {fileID: 1904157988}
-  playerPoint: {fileID: 1904157987}
+  playerCollider: {fileID: 1904157989}
   playerNumber: 2
-  absorbScaleFactor: 0
+  absorbScaleFactor: 2
 --- !u!250 &1904157987
 PointEffector2D:
   m_ObjectHideFlags: 0
