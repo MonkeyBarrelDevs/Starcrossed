@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -24,7 +25,11 @@ public class GameController : MonoBehaviour
         levelLoader = FindObjectOfType<LevelLoader>();
         playerController = FindObjectOfType<PlayerController>();
         audioManager = FindObjectOfType<AudioManager>();
-
+        GameObject.FindGameObjectWithTag("Menu").GetComponent<Image>().enabled = false;
+        GameObject.FindGameObjectWithTag("Retry").GetComponent<Image>().enabled = false;
+        GameObject.FindGameObjectWithTag("GameOver").GetComponent<SpriteRenderer>().enabled = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         canSpawn = true;
         canMove = true;
         spawnFrequencyScalar = 0.006; // This will progress a scale of spawning every 4 seconds to 0.5 seconds in 8-11 minutes.
@@ -44,10 +49,25 @@ public class GameController : MonoBehaviour
 
     public void FailGame() {
         GameObject.FindGameObjectWithTag("MusicTrack").GetComponent<AudioSource>().Stop();
+        
         //PausePlayGame();
         canSpawn = false;
         canMove = false;
-        //playerController.setCanMove(false);
+        Invoke("RenderDelayedEnd", 4f);
+        // playerController.setCanMove(false);
+        /*float timeUntilEndMusic = Time.time + 4;
+        while (Time.time < timeUntilEndMusic) {
+ 
+        }*/
+        //FindObjectOfType<AudioManager>().Play("loseTrack");
+        //GameObject.FindGameObjectWithTag("MusicTrack").GetComponent<AudioSource>().Stop();
+    }
+
+    void RenderDelayedEnd() {
+        FindObjectOfType<AudioManager>().Play("loseTrack");
+        GameObject.FindGameObjectWithTag("GameOver").GetComponent<SpriteRenderer>().enabled = true;
+        GameObject.FindGameObjectWithTag("Menu").GetComponent<Image>().enabled = true;
+        GameObject.FindGameObjectWithTag("Retry").GetComponent<Image>().enabled = true;
     }
 
     public void PausePlayGame()
@@ -76,12 +96,20 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) 
+        if (Input.GetKeyDown(KeyCode.Escape) && canSpawn) 
         {
             PausePlayGame();
             pauseMenu.SetActive(!pauseMenu.activeInHierarchy);
+
+            if (Cursor.visible) {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            } else {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
         }
-        totalTimer = Time.time;
+        totalTimer = Time.timeSinceLevelLoad;
         spawnTimer += Time.deltaTime;
         Debug.Log((int) Time.fixedTime);
         SpawnCheck();
