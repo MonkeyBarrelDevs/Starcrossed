@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
     [SerializeField] double spawnFrequency = 4;
     [SerializeField] double spawnTimeMinimum = 0.5; //in seconds
     [SerializeField] double spawnFrequencyScalar;
+    [SerializeField] GameObject pauseMenu;
     AsteroidManager asteroidManager;
     LevelLoader levelLoader;
 
@@ -46,7 +47,7 @@ public class GameController : MonoBehaviour
         //PausePlayGame();
         canSpawn = false;
         canMove = false;
-       // playerController.setCanMove(false);
+        //playerController.setCanMove(false);
     }
 
     public void PausePlayGame()
@@ -75,6 +76,11 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape)) 
+        {
+            PausePlayGame();
+            pauseMenu.SetActive(!pauseMenu.activeInHierarchy);
+        }
         totalTimer = Time.time;
         spawnTimer += Time.deltaTime;
         Debug.Log((int) Time.fixedTime);
