@@ -6,20 +6,40 @@ public class GameController : MonoBehaviour
 {
     private double totalTimer = 0;
     private double spawnTimer = 0;
-    double spawnFrequency = 2;
+    [SerializeField] double spawnFrequency = 2;
     AsteroidManager asteroidManager;
+    LevelLoader levelLoader;
+
+    PlayerController playerController;
+    bool canSpawn;
+    bool canMove;
 
     void Start()
     {
         asteroidManager = FindObjectOfType<AsteroidManager>();
+        levelLoader = FindObjectOfType<LevelLoader>();
+        playerController = FindObjectOfType<PlayerController>();
+        canSpawn = true;
+        canMove = true;
     }
 
     private void SpawnCheck()
     {
-        if (spawnTimer > spawnFrequency){
+        if (spawnTimer > spawnFrequency && canSpawn){
             spawnTimer = 0;
             asteroidManager.Spawn();
         }
+    }
+
+    public bool MoveCheck() {
+        return canMove;
+    }
+
+    public void FailGame() {
+        //PausePlayGame();
+        canSpawn = false;
+        canMove = false;
+       // playerController.setCanMove(false);
     }
 
     public void PausePlayGame()

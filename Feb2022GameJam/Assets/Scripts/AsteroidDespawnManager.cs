@@ -16,7 +16,7 @@ public class AsteroidDespawnManager : MonoBehaviour
     }
 
     void spinAsteroid() {
-        y += 0.5f * randomSpinMultiplier;
+        y += 0.5f * randomSpinMultiplier * Time.timeScale;
         transform.localRotation = Quaternion.Euler(0, 0, y);
 
         
