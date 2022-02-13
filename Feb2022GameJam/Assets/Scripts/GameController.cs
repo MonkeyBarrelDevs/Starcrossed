@@ -75,10 +75,14 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log("Hi");
         totalTimer = Time.time;
         spawnTimer += Time.deltaTime;
+        Debug.Log((int) Time.fixedTime);
         SpawnCheck();
         DifficultyControl();
+    }
+
+    public bool IsGamePlaying() {
+        return canMove;
     }
 }
