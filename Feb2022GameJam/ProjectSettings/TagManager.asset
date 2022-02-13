@@ -7,6 +7,9 @@ TagManager:
   - AudioManager
   - Asteroid
   - MusicTrack
+  - GameOver
+  - Menu
+  - Retry
   layers:
   - Default
   - TransparentFX

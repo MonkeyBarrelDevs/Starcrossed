@@ -26,7 +26,7 @@ public class Timer : MonoBehaviour
     void Update() {
 
         if ((int) Time.fixedTime >= timeCurrent  && gameController.IsGamePlaying()) {
-            timeCurrent = (int) Time.fixedTime;
+            timeCurrent = (int) Time.timeSinceLevelLoad;
             DisplayTime();
 
         }
