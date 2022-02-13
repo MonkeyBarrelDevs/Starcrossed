@@ -23,7 +23,7 @@ public class GameController : MonoBehaviour
         playerController = FindObjectOfType<PlayerController>();
         canSpawn = true;
         canMove = true;
-        spawnFrequencyScalar = 0.5;
+        spawnFrequencyScalar = 0.006; // This will progress a scale of spawning every 4 seconds to 0.5 seconds in 8-11 minutes.
     }
 
     private void SpawnCheck()
@@ -59,7 +59,7 @@ public class GameController : MonoBehaviour
 
     private void DifficultyControl() {
         if (spawnFrequency > spawnTimeMinimum) {
-            spawnFrequency = (spawnFrequency - (totalTimer * spawnFrequencyScalar * 0.00001));
+            spawnFrequency = (spawnFrequency - (Time.deltaTime * spawnFrequencyScalar));
             Debug.Log("Asteroids are currently spawning every " + spawnFrequency + " seconds.");
             
         }
