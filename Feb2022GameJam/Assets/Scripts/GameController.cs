@@ -6,20 +6,43 @@ public class GameController : MonoBehaviour
 {
     private double totalTimer = 0;
     private double spawnTimer = 0;
-    double spawnFrequency = 2;
+    [SerializeField] double spawnFrequency = 4;
+    [SerializeField] double spawnTimeMinimum = 0.5; //in seconds
+    [SerializeField] double spawnFrequencyScalar;
     AsteroidManager asteroidManager;
+    LevelLoader levelLoader;
+
+    PlayerController playerController;
+    bool canSpawn;
+    bool canMove;
 
     void Start()
     {
         asteroidManager = FindObjectOfType<AsteroidManager>();
+        levelLoader = FindObjectOfType<LevelLoader>();
+        playerController = FindObjectOfType<PlayerController>();
+        canSpawn = true;
+        canMove = true;
+        spawnFrequencyScalar = 0.006; // This will progress a scale of spawning every 4 seconds to 0.5 seconds in 8-11 minutes.
     }
 
     private void SpawnCheck()
     {
-        if (spawnTimer > spawnFrequency){
+        if (spawnTimer > spawnFrequency && canSpawn){
             spawnTimer = 0;
             asteroidManager.Spawn();
         }
+    }
+
+    public bool MoveCheck() {
+        return canMove;
+    }
+
+    public void FailGame() {
+        //PausePlayGame();
+        canSpawn = false;
+        canMove = false;
+       // playerController.setCanMove(false);
     }
 
     public void PausePlayGame()
@@ -35,11 +58,15 @@ public class GameController : MonoBehaviour
     }
 
     private void DifficultyControl() {
-        if (totalTimer > 10) {
-            spawnFrequency = 1;
-        } else if (totalTimer > 20) {
-            spawnFrequency = 0.3;
+        if (spawnFrequency > spawnTimeMinimum) {
+            spawnFrequency = (spawnFrequency - (Time.deltaTime * spawnFrequencyScalar));
+            Debug.Log("Asteroids are currently spawning every " + spawnFrequency + " seconds.");
+            
         }
+        if (spawnFrequency <= spawnTimeMinimum) {
+            Debug.Log("Reached the minimum at " + totalTimer + " seconds.");
+        }
+        Debug.Log(totalTimer + " seconds have passed.");
     }
 
     void Update()

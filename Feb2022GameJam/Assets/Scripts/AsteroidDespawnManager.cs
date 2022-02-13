@@ -16,11 +16,13 @@ public class AsteroidDespawnManager : MonoBehaviour
     }
 
     void spinAsteroid() {
-        y += 0.5f * randomSpinMultiplier;
+        y += 0.5f * randomSpinMultiplier * Time.timeScale;
         transform.localRotation = Quaternion.Euler(0, 0, y);
 
         
     }
+
+    
 
     // Update is called once per frame
     void Update()
@@ -28,11 +30,8 @@ public class AsteroidDespawnManager : MonoBehaviour
         spinAsteroid();
         //y += 1 * randomSpinMultiplier;
         //Debug.Log("X: " + x + "Y: " + y);
-        if (transform.position.magnitude > asteroidManager.GetDestroyRadius()) {
+        if (transform.position.magnitude > asteroidManager.GetDestroyRadius() ) {
             Destroy(this.gameObject);
         }
-        
-
-
     }
 }

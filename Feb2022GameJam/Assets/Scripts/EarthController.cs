@@ -5,11 +5,17 @@ using UnityEngine;
 public class EarthController : MonoBehaviour
 {
     public GameController controller;
-    private void OnTriggerEnter2D(Collider2D collider)
+    private void OnCollisionEnter2D(Collision2D col)
     {
-        if(collider.gameObject.tag == "Player" || collider.gameObject.tag == "Asteroid")
+        if (col.collider.gameObject.tag == "Player" || col.collider.gameObject.tag == "Asteroid")
         {
-            controller.PausePlayGame();
+            Debug.Log("hi!");
+            controller.FailGame();
+            gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         }
+
+        
     }
+
+
 }
