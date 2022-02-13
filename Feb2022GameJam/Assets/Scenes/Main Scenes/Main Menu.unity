@@ -276,8 +276,8 @@ Canvas:
   m_GameObject: {fileID: 662080782}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1128592667}
   m_PlaneDistance: 100
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
@@ -286,7 +286,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!1 &759164244
 GameObject:
@@ -429,6 +429,7 @@ GameObject:
   - component: {fileID: 1128592665}
   - component: {fileID: 1128592669}
   - component: {fileID: 1128592670}
+  - component: {fileID: 1128592671}
   m_Layer: 0
   m_Name: Pixel Perfect Camera
   m_TagString: Untagged
@@ -558,6 +559,56 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1128592664}
   m_Enabled: 1
+--- !u!114 &1128592671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128592664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f708216f367d64d4aa511502dac7f3dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Pipeline: {fileID: 11400000, guid: 6386748685a815d48873f9d18d9ec9b0, type: 2}
+  m_Feature: {fileID: 2473353235496497644, guid: 48246057adb033d4d9a78c29cd244b5f, type: 2}
+  m_MatFunc: {fileID: 2100000, guid: 11d3a96059865b74bb677b6568517b40, type: 2}
+  m_MatPostPro: {fileID: 2100000, guid: d6013acb75e222640955693ec91a386d, type: 2}
+  m_MatFinal: {fileID: 2100000, guid: c9a63d9440a36684eac816a8b3e739e6, type: 2}
+  m_CurrPreset: 0
+  m_BlurSize: 0.35
+  m_BlurStrength: 0.3
+  m_BleedingSize: 0.75
+  m_BleedingStrength: 0.5
+  m_ChromaticAberrationOffset: 1.25
+  m_RGBMaskIntensivity: 0.6
+  m_RGBMaskStrength: 0.6
+  m_RGBMaskBleeding: 0.4
+  m_ColorNoiseMode: 0
+  m_ColorNoiseStrength: 0.15
+  m_WhiteNoiseMode: 1
+  m_WhiteNoiseStrength: 0.25
+  m_DarkestLevel: {r: 0, g: 0, b: 0, a: 1}
+  m_BrightestLevel: {r: 0.92156863, g: 0.92156863, b: 0.92156863, a: 1}
+  m_DarkestColor: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+  m_BrightestColor: {r: 1, g: 1, b: 1, a: 1}
+  m_Brightness: 0.2
+  m_Contrast: 0.1
+  m_Saturation: -0.05
+  m_InterferenceWidth: 25
+  m_InterferenceSpeed: 3
+  m_InterferenceStrength: 0
+  m_InterferenceSplit: 0.25
+  m_CurvatureX: 0.6
+  m_CurvatureY: 0.6
+  m_Overscan: 0
+  m_VignetteSize: 0.35
+  m_VignetteStrength: 0.1
+  m_TurnOff: 0
+  m_BgColor: {r: 0.0859, g: 0.0937, b: 0.1328, a: 1}
+  m_LineAmount: 0.25
+  m_LineSpeed: 0.01
 --- !u!1 &1330684596
 GameObject:
   m_ObjectHideFlags: 0
