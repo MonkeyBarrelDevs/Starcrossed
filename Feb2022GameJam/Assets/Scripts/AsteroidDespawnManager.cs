@@ -7,17 +7,18 @@ public class AsteroidDespawnManager : MonoBehaviour
     AsteroidManager asteroidManager;
     private int x = 0;
     private int y = 0;
+    private int randomSpinMultiplier;
     // Start is called before the first frame update
     void Start()
     {
+        randomSpinMultiplier = Random.Range(1, 5);
         asteroidManager = FindObjectOfType<AsteroidManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        x+=5;
-        y+=5;
+        y+= 1 * randomSpinMultiplier;
         //Debug.Log("X: " + x + "Y: " + y);
         if (transform.position.magnitude > asteroidManager.GetDestroyRadius()) {
             Destroy(this.gameObject);

@@ -19,7 +19,6 @@ public class GameController : MonoBehaviour
         if (spawnTimer > spawnFrequency){
             spawnTimer = 0;
             asteroidManager.Spawn();
-            Debug.Log("Hello");
         }
     }
 
@@ -35,19 +34,20 @@ public class GameController : MonoBehaviour
         }
     }
 
+    private void DifficultyControl() {
+        if (totalTimer > 10) {
+            spawnFrequency = 1;
+        } else if (totalTimer > 20) {
+            spawnFrequency = 0.3;
+        }
+    }
+
     void Update()
     {
         //Debug.Log("Hi");
         totalTimer = Time.time;
         spawnTimer += Time.deltaTime;
-        spawnFrequency -= 0.01;
-        //Time.
-        //Debug.Log(spawnTimer);
-        //Debug.Log(spawnTimer);
-        //if (checked earth controller to see if dead)
-        //{
-        //tell screen manager to end screen
-        //}
         SpawnCheck();
+        DifficultyControl();
     }
 }
