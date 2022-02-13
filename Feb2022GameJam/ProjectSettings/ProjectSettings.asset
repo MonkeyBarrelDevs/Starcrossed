@@ -12,9 +12,9 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
-  productName: Feb2022GameJam
-  defaultCursor: {fileID: 0}
+  companyName: MonkeyBarrel
+  productName: StarCrossed
+  defaultCursor: {fileID: 2800000, guid: 101cd87c1a8a32b4db380a317b0eefd6, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
