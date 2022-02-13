@@ -300,6 +300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRidge: {fileID: 659018894}
+  playerPoint: {fileID: 659018893}
   playerNumber: 1
 --- !u!250 &659018893
 PointEffector2D:
@@ -6483,6 +6484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRidge: {fileID: 1904157988}
+  playerPoint: {fileID: 1904157987}
   playerNumber: 2
 --- !u!250 &1904157987
 PointEffector2D:

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D playerRidge;
+    public PointEffector2D playerPoint;
     public int playerNumber;
     GameController gameController;
     //bool canMove;
@@ -18,6 +19,8 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D col)  {
         if (col.collider.gameObject.tag == "Asteroid") {
            Destroy(col.collider.gameObject);
+            //changes the pull strength of BH based on absorbed asteroids
+            playerPoint.forceMagnitude -= 10;
         }
 
         
