@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] Animator anim;
+    [SerializeField] Animator faceAnim;
+    [SerializeField] float animMoveThreshold;
+
     public ParticleSystem playerParticles;
     public Rigidbody2D playerRidge;
     public CircleCollider2D playerCollider;
+    private EarthController earth;
     public int playerNumber;
     private int emissionRate = 10;
     GameController gameController;
@@ -18,6 +23,7 @@ public class PlayerController : MonoBehaviour
     {
         gameController = FindObjectOfType<GameController>();
         audioManager = FindObjectOfType<AudioManager>();
+        earth = FindObjectOfType<EarthController>();
         //canMove = true;
     }
 
@@ -40,6 +46,10 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (earth.gameObject.activeInHierarchy)
+            faceAnim.SetBool("NearEarth", (earth.gameObject.transform.position - gameObject.transform.position).magnitude < playerCollider.radius);
+        faceAnim.SetBool("Moving", playerRidge.velocity.magnitude > animMoveThreshold);
+
         if (gameController.MoveCheck()) {
             Vector2 playerInput = new Vector2(0, 0);
             if (playerNumber == 1)
@@ -52,7 +62,12 @@ public class PlayerController : MonoBehaviour
             }
             playerRidge.velocity = playerInput * 20;
         } else {
-            gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+            playerRidge.constraints = RigidbodyConstraints2D.FreezeAll;
         }
+    }
+
+    public void EatEarth() 
+    {
+        anim.SetTrigger("EatEarth");
     }
 }
