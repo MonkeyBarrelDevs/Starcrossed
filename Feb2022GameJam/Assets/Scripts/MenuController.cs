@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class MenuController : MonoBehaviour
 {
-    [SerializeField] float TransitionThreshold = 0.5f;
-    float timer = 0;
     LevelLoader levelLoader;
+    bool canPress = true;
 
     // Start is called at the beginning
     private void Start()
@@ -14,11 +13,35 @@ public class MenuController : MonoBehaviour
         levelLoader = FindObjectOfType<LevelLoader>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StartGame() 
     {
-        if (Input.GetMouseButtonDown(0)) {
-            levelLoader.LoadNextLevel();
+        if (canPress)
+        {
+            canPress = false;
+            levelLoader.LoadLevelAtIndex(2);
+        }
+    }
+
+    public void QuitGame()
+    {
+        if (canPress)
+        {
+            canPress = false;
+
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
+
+            Application.Quit();
+        }
+    }
+
+    public void Credits() 
+    {
+        if (canPress) 
+        {
+            canPress = false;
+            levelLoader.LoadLevelAtIndex(3);
         }
     }
 }

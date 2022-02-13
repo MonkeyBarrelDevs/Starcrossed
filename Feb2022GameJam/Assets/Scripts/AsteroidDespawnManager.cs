@@ -8,9 +8,11 @@ public class AsteroidDespawnManager : MonoBehaviour
     private float y = 0;
     private float randomSpinMultiplier;
     private double spinTimer;
+    private GameController controller;
     // Start is called before the first frame update
     void Start()
     {
+        controller = FindObjectOfType<GameController>();
         randomSpinMultiplier = Random.Range(1, 5);
         asteroidManager = FindObjectOfType<AsteroidManager>();
     }
@@ -18,20 +20,25 @@ public class AsteroidDespawnManager : MonoBehaviour
     void spinAsteroid() {
         y += 0.5f * randomSpinMultiplier * Time.timeScale;
         transform.localRotation = Quaternion.Euler(0, 0, y);
-
-        
     }
 
     
 
     // Update is called once per frame
     void Update()
-    {
-        spinAsteroid();
-        //y += 1 * randomSpinMultiplier;
-        //Debug.Log("X: " + x + "Y: " + y);
-        if (transform.position.magnitude > asteroidManager.GetDestroyRadius() ) {
+    {        
+        if (transform.position.magnitude > asteroidManager.GetDestroyRadius()) {
             Destroy(this.gameObject);
+        }
+        else if (!controller.MoveCheck())
+        {
+            gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+        }
+        else 
+        {
+            spinAsteroid();
+            //y += 1 * randomSpinMultiplier;
+            //Debug.Log("X: " + x + "Y: " + y);
         }
     }
 }
