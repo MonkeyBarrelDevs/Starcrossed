@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D playerRidge;
-    public PointEffector2D playerPoint;
+    public CircleCollider2D playerCollider;
     public int playerNumber;
     GameController gameController;
     AudioManager audioManager;
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
             FindObjectOfType<AudioManager>().Play(audioManager.sounds[Random.Range(2, 6)].name);
             Destroy(col.collider.gameObject);
             //changes the pull strength of BH based on absorbed asteroids
-            playerPoint.forceMagnitude -= absorbScaleFactor;
+            playerCollider.radius += absorbScaleFactor;
         }
 
         
