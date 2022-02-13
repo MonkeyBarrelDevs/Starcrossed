@@ -273,8 +273,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2117792253}
-  m_Father: {fileID: 1365638509}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -609,11 +609,6 @@ MonoBehaviour:
   m_CropFrameX: 0
   m_CropFrameY: 0
   m_StretchFill: 0
---- !u!4 &1365638509 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5039938021369142086, guid: 5eb5c2fceeb9a534aadb620801e3e50c, type: 3}
-  m_PrefabInstance: {fileID: 248269311}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2117792252
 GameObject:
   m_ObjectHideFlags: 0
