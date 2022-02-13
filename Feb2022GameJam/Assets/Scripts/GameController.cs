@@ -6,7 +6,9 @@ public class GameController : MonoBehaviour
 {
     private double totalTimer = 0;
     private double spawnTimer = 0;
-    [SerializeField] double spawnFrequency = 2;
+    [SerializeField] double spawnFrequency = 4;
+    [SerializeField] double spawnTimeMinimum = 0.5; //in seconds
+    [SerializeField] double spawnFrequencyScalar;
     AsteroidManager asteroidManager;
     LevelLoader levelLoader;
 
@@ -21,6 +23,7 @@ public class GameController : MonoBehaviour
         playerController = FindObjectOfType<PlayerController>();
         canSpawn = true;
         canMove = true;
+        spawnFrequencyScalar = 0.5;
     }
 
     private void SpawnCheck()
@@ -55,11 +58,15 @@ public class GameController : MonoBehaviour
     }
 
     private void DifficultyControl() {
-        if (totalTimer > 10) {
-            spawnFrequency = 1;
-        } else if (totalTimer > 20) {
-            spawnFrequency = 0.3;
+        if (spawnFrequency > spawnTimeMinimum) {
+            spawnFrequency = (spawnFrequency - (totalTimer * spawnFrequencyScalar * 0.00001));
+            Debug.Log("Asteroids are currently spawning every " + spawnFrequency + " seconds.");
+            
         }
+        if (spawnFrequency <= spawnTimeMinimum) {
+            Debug.Log("Reached the minimum at " + totalTimer + " seconds.");
+        }
+        Debug.Log(totalTimer + " seconds have passed.");
     }
 
     void Update()

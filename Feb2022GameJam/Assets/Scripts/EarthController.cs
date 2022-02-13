@@ -11,9 +11,10 @@ public class EarthController : MonoBehaviour
         {
             Debug.Log("hi!");
             controller.FailGame();
+            gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         }
 
-        gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+        
     }
 
 

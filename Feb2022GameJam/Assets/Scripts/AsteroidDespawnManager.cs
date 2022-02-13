@@ -22,17 +22,16 @@ public class AsteroidDespawnManager : MonoBehaviour
         
     }
 
+    
+
     // Update is called once per frame
     void Update()
     {
         spinAsteroid();
         //y += 1 * randomSpinMultiplier;
         //Debug.Log("X: " + x + "Y: " + y);
-        if (transform.position.magnitude > asteroidManager.GetDestroyRadius()) {
+        if (transform.position.magnitude > asteroidManager.GetDestroyRadius() ) {
             Destroy(this.gameObject);
         }
-        
-
-
     }
 }

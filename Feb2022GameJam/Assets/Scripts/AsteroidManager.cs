@@ -29,7 +29,7 @@ public class AsteroidManager : MonoBehaviour
     }
 
     Vector3 PickTarget(Vector3 asteroidLocation) {
-        float playRange = playSpaceSize/2;
+        float playRange = playSpaceSize / 2;
         return new Vector3(Random.Range(-playRange, playRange), Random.Range(-playRange, playRange), 0) - asteroidLocation;
     }
 

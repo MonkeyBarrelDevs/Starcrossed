@@ -15,10 +15,13 @@ public class PlayerController : MonoBehaviour
         //canMove = true;
     }
 
-    /*public void setCanMove(bool canMove) {
-        Debug.Log("Movement disabled");
-        this.canMove = canMove;
-    }*/
+    private void OnCollisionEnter2D(Collision2D col)  {
+        if (col.collider.gameObject.tag == "Asteroid") {
+           Destroy(col.collider.gameObject);
+        }
+
+        
+    }
 
     void FixedUpdate()
     {
@@ -32,7 +35,7 @@ public class PlayerController : MonoBehaviour
             {
                 playerInput = new Vector2(Input.GetAxis("Horizontal 2"), Input.GetAxis("Vertical 2"));
             }
-            playerRidge.velocity = playerInput * 7;
+            playerRidge.velocity = playerInput * 20;
         } else {
             gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         }
