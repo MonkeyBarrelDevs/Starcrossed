@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D playerRidge;
-    public PointEffector2D playerPoint;
+    public CircleCollider2D playerCollider;
     public int playerNumber;
     GameController gameController;
     [SerializeField] int absorbScaleFactor;
@@ -20,8 +20,8 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D col)  {
         if (col.collider.gameObject.tag == "Asteroid") {
            Destroy(col.collider.gameObject);
-            //changes the pull strength of BH based on absorbed asteroids
-            playerPoint.forceMagnitude -= absorbScaleFactor;
+            //changes the pull range of BH based on absorbed asteroids
+            playerCollider.radius += absorbScaleFactor;
         }
 
         
