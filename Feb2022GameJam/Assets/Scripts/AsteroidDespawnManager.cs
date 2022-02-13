@@ -5,9 +5,9 @@ using UnityEngine;
 public class AsteroidDespawnManager : MonoBehaviour
 {
     AsteroidManager asteroidManager;
-    private int x = 0;
-    private int y = 0;
-    private int randomSpinMultiplier;
+    private float y = 0;
+    private float randomSpinMultiplier;
+    private double spinTimer;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,15 +15,24 @@ public class AsteroidDespawnManager : MonoBehaviour
         asteroidManager = FindObjectOfType<AsteroidManager>();
     }
 
+    void spinAsteroid() {
+        y += 0.5f * randomSpinMultiplier;
+        transform.localRotation = Quaternion.Euler(0, 0, y);
+
+        
+    }
+
     // Update is called once per frame
     void Update()
     {
-        y+= 1 * randomSpinMultiplier;
+        spinAsteroid();
+        //y += 1 * randomSpinMultiplier;
         //Debug.Log("X: " + x + "Y: " + y);
         if (transform.position.magnitude > asteroidManager.GetDestroyRadius()) {
             Destroy(this.gameObject);
         }
-        transform.localRotation = Quaternion.Euler(0, 0, y);
+        
+
 
     }
 }
