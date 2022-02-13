@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
             //changes the pull strength of BH based on absorbed asteroids
             playerCollider.radius += absorbScaleFactor;
             ParticleSystem.ShapeModule sm = playerParticles.shape;
-            sm.radius += 1;
+            sm.radius += 0.2f;
             ParticleSystem.EmissionModule em = playerParticles.emission;
             emissionRate += 5;
             em.rateOverTime = emissionRate;
