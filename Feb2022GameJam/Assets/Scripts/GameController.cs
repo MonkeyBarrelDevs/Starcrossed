@@ -28,8 +28,8 @@ public class GameController : MonoBehaviour
         GameObject.FindGameObjectWithTag("Menu").GetComponent<Image>().enabled = false;
         GameObject.FindGameObjectWithTag("Retry").GetComponent<Image>().enabled = false;
         GameObject.FindGameObjectWithTag("GameOver").GetComponent<SpriteRenderer>().enabled = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
         canSpawn = true;
         canMove = true;
         spawnFrequencyScalar = 0.006; // This will progress a scale of spawning every 4 seconds to 0.5 seconds in 8-11 minutes.
@@ -101,13 +101,13 @@ public class GameController : MonoBehaviour
             PausePlayGame();
             pauseMenu.SetActive(!pauseMenu.activeInHierarchy);
 
-            if (Cursor.visible) {
+            /*if (Cursor.visible) {
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
             } else {
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
-            }
+            }*/
         }
         totalTimer = Time.timeSinceLevelLoad;
         spawnTimer += Time.deltaTime;

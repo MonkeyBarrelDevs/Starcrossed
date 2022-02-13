@@ -149,7 +149,7 @@ Transform:
   m_GameObject: {fileID: 20187831}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 20, y: 10, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1886816487}
@@ -217,6 +217,10 @@ PrefabInstance:
     - target: {fileID: 5039938021369142084, guid: 5eb5c2fceeb9a534aadb620801e3e50c, type: 3}
       propertyPath: m_Name
       value: Level Loader
+      objectReference: {fileID: 0}
+    - target: {fileID: 5039938021369142084, guid: 5eb5c2fceeb9a534aadb620801e3e50c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5039938021369142086, guid: 5eb5c2fceeb9a534aadb620801e3e50c, type: 3}
       propertyPath: m_RootOrder
@@ -6470,7 +6474,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 762336523}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -30}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6927,12 +6931,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6989884100534825433, guid: df1e30e511eb4e045904daf181e2699c, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1274572940}
+    - target: {fileID: 6989884100534825433, guid: df1e30e511eb4e045904daf181e2699c, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6989884100534825433, guid: df1e30e511eb4e045904daf181e2699c, type: 3}
       propertyPath: m_PixelPerfect
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6989884100534825433, guid: df1e30e511eb4e045904daf181e2699c, type: 3}
       propertyPath: m_SortingOrder
-      value: 100
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 6989884100534825436, guid: df1e30e511eb4e045904daf181e2699c, type: 3}
       propertyPath: m_Name
@@ -7068,7 +7080,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1092081355}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -30}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7545,6 +7557,7 @@ GameObject:
   - component: {fileID: 1274572938}
   - component: {fileID: 1274572942}
   - component: {fileID: 1274572943}
+  - component: {fileID: 1274572944}
   m_Layer: 0
   m_Name: Pixel Perfect Camera
   m_TagString: Untagged
@@ -7674,6 +7687,56 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1274572937}
   m_Enabled: 1
+--- !u!114 &1274572944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274572937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f708216f367d64d4aa511502dac7f3dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Pipeline: {fileID: 11400000, guid: 6386748685a815d48873f9d18d9ec9b0, type: 2}
+  m_Feature: {fileID: 2473353235496497644, guid: 48246057adb033d4d9a78c29cd244b5f, type: 2}
+  m_MatFunc: {fileID: 2100000, guid: 11d3a96059865b74bb677b6568517b40, type: 2}
+  m_MatPostPro: {fileID: 2100000, guid: d6013acb75e222640955693ec91a386d, type: 2}
+  m_MatFinal: {fileID: 2100000, guid: c9a63d9440a36684eac816a8b3e739e6, type: 2}
+  m_CurrPreset: 0
+  m_BlurSize: 0.35
+  m_BlurStrength: 0.3
+  m_BleedingSize: 0.75
+  m_BleedingStrength: 0.5
+  m_ChromaticAberrationOffset: 1.25
+  m_RGBMaskIntensivity: 0.6
+  m_RGBMaskStrength: 0.6
+  m_RGBMaskBleeding: 0.1
+  m_ColorNoiseMode: 0
+  m_ColorNoiseStrength: 0.15
+  m_WhiteNoiseMode: 1
+  m_WhiteNoiseStrength: 0.25
+  m_DarkestLevel: {r: 0, g: 0, b: 0, a: 1}
+  m_BrightestLevel: {r: 0.92156863, g: 0.92156863, b: 0.92156863, a: 1}
+  m_DarkestColor: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+  m_BrightestColor: {r: 1, g: 1, b: 1, a: 1}
+  m_Brightness: 0.2
+  m_Contrast: 0.1
+  m_Saturation: -0.05
+  m_InterferenceWidth: 25
+  m_InterferenceSpeed: 3
+  m_InterferenceStrength: 0
+  m_InterferenceSplit: 0.25
+  m_CurvatureX: 0.6
+  m_CurvatureY: 0.6
+  m_Overscan: 0
+  m_VignetteSize: 0.35
+  m_VignetteStrength: 0.1
+  m_TurnOff: 0
+  m_BgColor: {r: 0.0859, g: 0.0937, b: 0.1328, a: 1}
+  m_LineAmount: 0.25
+  m_LineSpeed: 0.01
 --- !u!4 &1565497197 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1526620846385167896, guid: 1a38ac552f2e27842bafb6eb8dd2775d, type: 3}
@@ -8071,8 +8134,8 @@ Canvas:
   m_GameObject: {fileID: 1840167018}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1274572940}
   m_PlaneDistance: 100
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
@@ -8081,7 +8144,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 15
   m_TargetDisplay: 0
 --- !u!1 &1886816486
 GameObject:
@@ -13377,7 +13440,7 @@ Transform:
   m_GameObject: {fileID: 2089122379}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -20, y: 10, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1886816487}

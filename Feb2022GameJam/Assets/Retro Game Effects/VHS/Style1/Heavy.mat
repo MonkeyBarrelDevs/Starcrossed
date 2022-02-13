@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Heavy
+  m_Shader: {fileID: 4800000, guid: 9c5e4041aa29545178a843f687f54a36, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Amount: 1
+    - _CRTFade: 0.7
+    - _ChannelDif: 4
+    - _Fade: 1
+    - _Layer1Intensity: 8
+    - _Layer1Scale: 30
+    - _Layer1_Indensity: 8
+    - _Layer1_U: 9
+    - _Layer1_V: 9
+    - _Layer2Intensity: 4
+    - _Layer2Scale: 5
+    - _Layer2_Indensity: 4
+    - _Layer2_U: 5
+    - _Layer2_V: 5
+    - _Offset: 3
+    - _PixelSize: 3
+    - _RGBSplit: 0.5
+    - _RGBSplit_Indensity: 0.5
+    - _ROffset: 4
+    - _amount: 1
+    - _channelDif: 4
+    m_Colors: []
