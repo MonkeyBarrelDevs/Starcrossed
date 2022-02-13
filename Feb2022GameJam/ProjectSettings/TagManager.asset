@@ -6,6 +6,7 @@ TagManager:
   tags:
   - AudioManager
   - Asteroid
+  - MusicTrack
   layers:
   - Default
   - TransparentFX

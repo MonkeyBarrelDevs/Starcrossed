@@ -27,7 +27,7 @@ public class AudioManager : MonoBehaviour
     }
     
     //Plays a sound effect using the name of the sound
-    //Example: FindObjectOfType<Audio Manager>().Play(“SoundNmae”);
+    //Example: FindObjectOfType<Audio Manager>().Play(“SoundName”);
     public void Play(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);

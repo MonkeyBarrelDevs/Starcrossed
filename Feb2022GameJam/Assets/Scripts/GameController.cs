@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
     LevelLoader levelLoader;
 
     PlayerController playerController;
+    AudioManager audioManager;
     bool canSpawn;
     bool canMove;
 
@@ -21,6 +22,8 @@ public class GameController : MonoBehaviour
         asteroidManager = FindObjectOfType<AsteroidManager>();
         levelLoader = FindObjectOfType<LevelLoader>();
         playerController = FindObjectOfType<PlayerController>();
+        audioManager = FindObjectOfType<AudioManager>();
+
         canSpawn = true;
         canMove = true;
         spawnFrequencyScalar = 0.006; // This will progress a scale of spawning every 4 seconds to 0.5 seconds in 8-11 minutes.
@@ -39,6 +42,7 @@ public class GameController : MonoBehaviour
     }
 
     public void FailGame() {
+        GameObject.FindGameObjectWithTag("MusicTrack").GetComponent<AudioSource>().Stop();
         //PausePlayGame();
         canSpawn = false;
         canMove = false;
@@ -60,13 +64,13 @@ public class GameController : MonoBehaviour
     private void DifficultyControl() {
         if (spawnFrequency > spawnTimeMinimum) {
             spawnFrequency = (spawnFrequency - (Time.deltaTime * spawnFrequencyScalar));
-            Debug.Log("Asteroids are currently spawning every " + spawnFrequency + " seconds.");
+            //Debug.Log("Asteroids are currently spawning every " + spawnFrequency + " seconds.");
             
         }
         if (spawnFrequency <= spawnTimeMinimum) {
-            Debug.Log("Reached the minimum at " + totalTimer + " seconds.");
+            //Debug.Log("Reached the minimum at " + totalTimer + " seconds.");
         }
-        Debug.Log(totalTimer + " seconds have passed.");
+        //Debug.Log(totalTimer + " seconds have passed.");
     }
 
     void Update()
