@@ -8,18 +8,21 @@ public class PlayerController : MonoBehaviour
     public PointEffector2D playerPoint;
     public int playerNumber;
     GameController gameController;
+    AudioManager audioManager;
     [SerializeField] int absorbScaleFactor;
     //bool canMove;
 
     void Start()
     {
         gameController = FindObjectOfType<GameController>();
+        audioManager = FindObjectOfType<AudioManager>();
         //canMove = true;
     }
 
     private void OnCollisionEnter2D(Collision2D col)  {
         if (col.collider.gameObject.tag == "Asteroid") {
-           Destroy(col.collider.gameObject);
+            FindObjectOfType<AudioManager>().Play(audioManager.sounds[Random.Range(2, 6)].name);
+            Destroy(col.collider.gameObject);
             //changes the pull strength of BH based on absorbed asteroids
             playerPoint.forceMagnitude -= absorbScaleFactor;
         }
