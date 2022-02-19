@@ -1,6 +1,6 @@
 # Starcrossed
-<div align = "left-align"><img src="" alt="Starcrossed logo." width="1280" height="478">
-
+<div align = "left-align"><img src="https://raw.githubusercontent.com/MonkeyBarrelDevs/Starcrossed/main/Feb2022GameJam/Assets/Graphics/starcrossed.png" alt="Starcrossed logo." width="1024" height="306">
+  
 ## 🌎 Overview
 
 *Life in space can get lonely, especially when you're a supermassive black hole. It seems like anything you get close to just... disappears! Two brothers, cursed by the nature of their existence, keep each other company in the swirling darkness. Then one day, everything changes, when the two of them come across the cutest, bluest planet in the galaxy: the lovely, lively Earth.*
